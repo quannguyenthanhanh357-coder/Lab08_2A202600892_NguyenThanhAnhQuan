@@ -1,177 +1,136 @@
-# Bài Tập Nhóm — Search Engine / RAG Chatbot
+# Group Project — Requirement 1 (RAG Chatbot bằng Streamlit)
 
-## Mục Tiêu
+Triển khai này hoàn thành **Yêu cầu 1**:
+- Streamlit chat UI
+- Câu trả lời có citation
+- Cho phép chọn splitter / embedding model / reranking
+- Cho phép chọn vector store: `local_numpy` hoặc `weaviate_cloud`
+- Hỗ trợ follow-up questions với conversation memory
+- Hiển thị source documents được dùng khi trả lời
 
-Sau khi hoàn thành bài cá nhân, nhóm ngồi lại để xây dựng **1 trong 2 sản phẩm**:
+----
 
----
+## Files chính
 
-## Yêu cầu 1:  Sản phẩm nhóm RAG Chatbot
-
-Xây dựng chatbot trả lời câu hỏi về pháp luật ma tuý và tin tức liên quan.
-
-**Yêu cầu:**
-- Giao diện chat (Streamlit / Gradio / Chainlit)
-- Trả lời có citation (dựa trên Task 10)
-- Hỗ trợ follow-up questions (conversation memory)
-- Hiển thị source documents đã dùng
-
-**Stack gợi ý:**
-```
-Chainlit/Streamlit → Retrieval (Task 9) → Generation (Task 10) → Display
-```
+- `group_project/app.py`: Streamlit app
+- `group_project/rag_chatbot.py`: backend RAG configurable
 
 ---
 
-## Yêu cầu 2: RAG Evaluation Pipeline
+## Điều kiện môi trường
 
-Sử dụng **1 trong 3 framework** sau để evaluate pipeline RAG của nhóm:
+Điền các biến này trong `.env`:
 
-### Framework lựa chọn
-
-| Framework | Cài đặt | Đặc điểm |
-|-----------|---------|-----------|
-| [DeepEval](https://github.com/confident-ai/deepeval) | `pip install deepeval` | Nhiều metric built-in, dễ integrate với pytest |
-| [RAGAS](https://github.com/explodinggradients/ragas) | `pip install ragas` | Chuẩn industry cho RAG eval, 3 trục chính |
-| [TruLens](https://github.com/truera/trulens) | `pip install trulens` | Dashboard UI, feedback functions mạnh |
-
-### Yêu cầu Evaluation
-
-1. **Tạo Golden Dataset** — tối thiểu 15 cặp Q&A (question, expected_answer, expected_context)
-2. **Chạy evaluation** trên toàn bộ golden dataset với các metrics sau:
-   - **Faithfulness** — câu trả lời có bám đúng context không?
-   - **Answer Relevance** — câu trả lời có đúng câu hỏi không?
-   - **Context Recall** — retriever có lấy đủ evidence không?
-   - **Context Precision** — trong context lấy về, bao nhiêu % thực sự hữu ích?
-3. **So sánh A/B** — chạy eval trên ít nhất 2 config khác nhau (ví dụ: có reranking vs không reranking, hoặc hybrid vs dense-only)
-4. **Báo cáo** — bảng điểm + phân tích worst performers + đề xuất cải tiến
-
-### Code mẫu — DeepEval
-
-```python
-from deepeval import evaluate
-from deepeval.metrics import (
-    FaithfulnessMetric,
-    AnswerRelevancyMetric,
-    ContextualRecallMetric,
-    ContextualPrecisionMetric,
-)
-from deepeval.test_case import LLMTestCase
-
-# Tạo test cases từ golden dataset
-test_cases = []
-for item in golden_dataset:
-    result = rag_pipeline.generate_with_citation(item["question"])
-    test_case = LLMTestCase(
-        input=item["question"],
-        actual_output=result["answer"],
-        expected_output=item["expected_answer"],
-        retrieval_context=[c["content"] for c in result["sources"]],
-    )
-    test_cases.append(test_case)
-
-# Chạy evaluation
-metrics = [
-    FaithfulnessMetric(threshold=0.7),
-    AnswerRelevancyMetric(threshold=0.7),
-    ContextualRecallMetric(threshold=0.7),
-    ContextualPrecisionMetric(threshold=0.7),
-]
-
-results = evaluate(test_cases, metrics)
+```bash
+OPENAI_API_KEY=...
+WEAVIATE_URL=https://<cluster>.weaviate.network
+WEAVIATE_API_KEY=...
 ```
 
-### Code mẫu — RAGAS
-
-```python
-from ragas import evaluate
-from ragas.metrics import (
-    faithfulness,
-    answer_relevancy,
-    context_recall,
-    context_precision,
-)
-from datasets import Dataset
-
-# Chuẩn bị data
-eval_data = {
-    "question": [],
-    "answer": [],
-    "contexts": [],
-    "ground_truth": [],
-}
-
-for item in golden_dataset:
-    result = rag_pipeline.generate_with_citation(item["question"])
-    eval_data["question"].append(item["question"])
-    eval_data["answer"].append(result["answer"])
-    eval_data["contexts"].append([c["content"] for c in result["sources"]])
-    eval_data["ground_truth"].append(item["expected_answer"])
-
-dataset = Dataset.from_dict(eval_data)
-
-# Chạy evaluation
-result = evaluate(
-    dataset,
-    metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
-)
-print(result.to_pandas())
-```
-
-### Code mẫu — TruLens
-
-```python
-from trulens.apps.custom import TruCustomApp, instrument
-from trulens.core import Feedback
-from trulens.providers.openai import OpenAI as TruOpenAI
-
-provider = TruOpenAI()
-
-# Define feedback functions
-f_faithfulness = Feedback(provider.groundedness_measure_with_cot_reasons).on_output()
-f_relevance = Feedback(provider.relevance).on_input_output()
-f_context_relevance = Feedback(provider.context_relevance).on_input()
-
-# Wrap RAG pipeline
-tru_rag = TruCustomApp(
-    rag_pipeline,
-    app_name="DrugLaw_RAG",
-    feedbacks=[f_faithfulness, f_relevance, f_context_relevance],
-)
-
-# Run evaluation
-with tru_rag as recording:
-    for item in golden_dataset:
-        rag_pipeline.generate_with_citation(item["question"])
-
-# View dashboard
-from trulens.dashboard import run_dashboard
-run_dashboard()
-```
-
-### Deliverable Evaluation
-
-- [ ] File `group_project/evaluation/golden_dataset.json` — 15+ cặp Q&A
-- [ ] File `group_project/evaluation/eval_pipeline.py` — script chạy evaluation
-- [ ] File `group_project/evaluation/results.md` — bảng điểm + phân tích
-- [ ] So sánh A/B ít nhất 2 configs
+Nếu chỉ dùng `local_numpy`, bạn chỉ cần `OPENAI_API_KEY`.
 
 ---
 
-## Yêu Cầu Chung
+## Chạy ứng dụng
 
-1. **Tích hợp pipeline** từ bài cá nhân của các thành viên
-2. **Demo hoạt động được** trong buổi trình bày (chạy local hoặc deploy)
-3. **Evaluation pipeline** chạy được và có báo cáo kết quả
-4. **Code push lên repository** chung của nhóm
-5. **README** mô tả kiến trúc và phân công (điền bên dưới)
+Từ thư mục `Lab/Day08-lab-assignment`:
+
+```bash
+pip install -r requirements.txt
+streamlit run group_project/app.py
+```
+
+---
+
+## Cách demo nhanh
+
+1. Mở sidebar, chọn:
+   - Splitter
+   - Embedding model
+   - Reranking method
+   - Chunk size / overlap / threshold / top-k
+2. Bấm `Build/Rebuild Weaviate index`.
+3. Đặt câu hỏi trong chat.
+4. Xem:
+   - Câu trả lời có citation trong nội dung
+   - `Retrieval query` (khi bật conversation memory)
+   - Panel `Source documents đã dùng` để kiểm tra evidence
+
+---
+
+## Ghi chú về citation
+
+- Prompt generation bắt buộc mỗi claim có trích dẫn `[source]`.
+- Nếu thiếu bằng chứng từ context, chatbot trả về:
+  `Tôi không thể xác minh thông tin này từ nguồn hiện có.`
 
 ---
 
 ## Kiến Trúc Hệ Thống
 
-```
-[Vẽ diagram kiến trúc ở đây]
+```mermaid
+flowchart TB
+    subgraph Data["Data Pipeline (Bài cá nhân)"]
+        T1[Task 1-2: Thu thập legal + news]
+        T3[Task 3: Convert Markdown]
+        T4[Task 4: Chunking + Embedding + Index]
+        Landing[(data/landing)]
+        Std[(data/standardized)]
+        T1 --> Landing --> T3 --> Std --> T4
+    end
+
+    subgraph Chatbot["Yêu cầu 1 — RAG Chatbot (Streamlit)"]
+        UI[app.py — Streamlit UI]
+        Config[Sidebar Config<br/>splitter / embedding / vector store / rerank]
+        Agent[LLM Agent — gpt-4o-mini]
+        Tool[Tool: search_context]
+        Memory[Conversation Memory<br/>query rewrite]
+        Gen[Generation + Citation]
+        Sources[Source Documents Panel]
+
+        UI --> Config
+        UI --> Agent
+        Agent -->|trong domain| Tool
+        Agent -->|ngoài domain| Reject[Từ chối — không gọi tool]
+        Memory --> Agent
+        Tool --> Gen
+        Gen --> UI
+        Tool --> Sources
+    end
+
+    subgraph Retrieval["Retrieval Backend — rag_chatbot.py"]
+        Chunk[Chunking<br/>Recursive / MarkdownHeader / Semantic]
+        Embed[OpenAI Embeddings]
+        VS{{Vector Store<br/>local_numpy hoặc Weaviate Cloud}}
+        Sem[Semantic Search]
+        Lex[BM25 Lexical Search]
+        Merge[RRF Merge]
+        Rerank[Rerank<br/>none / rrf / mmr / cross_encoder]
+
+        Chunk --> Embed --> VS
+        VS --> Sem
+        VS --> Lex
+        Sem --> Merge
+        Lex --> Merge
+        Merge --> Rerank
+    end
+
+    subgraph Eval["Yêu cầu 2 — Evaluation Pipeline"]
+        Golden[golden_dataset.json<br/>15+ Q&A pairs]
+        EvalScript[eval_pipeline.py]
+        Metrics[4 Metrics<br/>Faithfulness / Answer Relevance<br/>Context Recall / Context Precision]
+        AB[A/B Config Comparison]
+        Report[results.md]
+
+        Golden --> EvalScript
+        EvalScript --> Metrics
+        Metrics --> AB --> Report
+    end
+
+    Std --> Chunk
+    T4 -.-> VS
+    Rerank --> Tool
+    Chatbot --> EvalScript
 ```
 
 ---
@@ -179,26 +138,9 @@ run_dashboard()
 ## Phân Công Công Việc
 
 | Thành viên | MSSV | Nhiệm vụ | Trạng thái |
-|-----------|------|----------|------------|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-
----
-
-## Hướng Dẫn Chạy
-
-```bash
-# Cài đặt dependencies
-pip install -r requirements.txt
-
-# Chạy app
-streamlit run app.py
-# hoặc
-chainlit run app.py
-```
-
----
-
-## Lưu ý: Hãy giữ lại repo này nếu như bạn học track 3 giai đoạn 2, chúng ta sẽ phát triển tiếp dự án lên knowledge graph để khắc phục các câu hỏi hóc búa khi có các câu hỏi khó.
+| --- | --- | --- | --- |
+| Trịnh Thị Lan Anh | 2A202600737 | **Tích hợp pipeline + Streamlit UI** — `group_project/app.py`: giao diện chat, sidebar config (splitter/embedding/vector store/rerank), build index, hiển thị source panel, chuẩn bị demo | Done |
+| Nguyễn Mạnh Quý | 2A202600643 | **Retrieval backend** — `group_project/rag_chatbot.py`: chunking, embedding, index (`local_numpy` / Weaviate), semantic + BM25 hybrid search, reranking | Done |
+| Nguyễn Thanh Anh Quân | 2A202600892 | **Agent & Generation** — tool `search_context`, domain gating (chỉ gọi tool khi liên quan dataset), citation, conversation memory / query rewrite | Done |
+| Nguyễn Đình Bảo Long | 2A202600981 | **Golden dataset + Eval pipeline** — `evaluation/golden_dataset.json` (≥15 Q&A), `evaluation/eval_pipeline.py` chạy 4 metrics (Faithfulness, Answer Relevance, Context Recall, Context Precision) | Done |
+| Phạm Hoài Nam | 2A202600954 | **A/B evaluation + Báo cáo + Docs** — so sánh ≥2 config (vd. có/không rerank), `evaluation/results.md` (worst performers + đề xuất), README kiến trúc + diagram | Done |

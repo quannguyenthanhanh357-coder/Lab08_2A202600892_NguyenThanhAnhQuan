@@ -1,17 +1,82 @@
 [
   {
-    "question": "Hình phạt cho tội tàng trữ trái phép chất ma tuý theo Điều 249 Bộ luật Hình sự?",
-    "expected_answer": "Phạt tù từ 1 đến 5 năm đối với trường hợp tàng trữ từ 1g đến dưới 5g heroin hoặc cocaine, hoặc chất ma tuý khác với khối lượng tương đương.",
-    "expected_context": "Bộ luật Hình sự 2015, Điều 249"
+    "question": "Dieu 249 Bo luat Hinh su 2015 sua doi 2017 quy dinh ve toi gi?",
+    "expected_answer": "Dieu 249 quy dinh ve toi tang tru trai phep chat ma tuy.",
+    "expected_context": "Bo luat Hinh su 2015 sua doi 2017, Dieu 249"
   },
   {
-    "question": "Luật Phòng chống ma tuý 2021 quy định những hình thức cai nghiện nào?",
-    "expected_answer": "Cai nghiện tự nguyện tại gia đình, cai nghiện tự nguyện tại cộng đồng, cai nghiện tự nguyện tại cơ sở cai nghiện, và cai nghiện bắt buộc tại cơ sở cai nghiện.",
-    "expected_context": "Luật Phòng chống ma tuý 2021, Chương V"
+    "question": "Dieu 255 Bo luat Hinh su quy dinh ve hanh vi nao lien quan den ma tuy?",
+    "expected_answer": "Dieu 255 quy dinh ve toi to chuc su dung trai phep chat ma tuy.",
+    "expected_context": "Bo luat Hinh su 2015 sua doi 2017, Dieu 255"
   },
   {
-    "question": "Danh mục các chất ma tuý thuộc nhóm I theo quy định pháp luật Việt Nam gồm những chất nào?",
-    "expected_answer": "Nhóm I gồm các chất ma tuý tuyệt đối cấm sử dụng trong y học và đời sống, bao gồm heroin, cocaine, methamphetamine, MDMA (ecstasy), cannabis (cần sa), và các chất tương tự.",
-    "expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục I"
+    "question": "Luat Phong chong ma tuy 2021 quy dinh nhung hinh thuc cai nghien nao?",
+    "expected_answer": "Luat quy dinh cai nghien tu nguyen tai gia dinh, tai cong dong, tai co so cai nghien va cai nghien bat buoc tai co so cai nghien.",
+    "expected_context": "Luat Phong chong ma tuy 2021, Chuong V"
+  },
+  {
+    "question": "Luat Phong chong ma tuy 2021 tap trung dieu chinh nhung noi dung lon nao?",
+    "expected_answer": "Van ban tap trung vao phong ngua, dau tranh toi pham ma tuy, quan ly nguoi su dung trai phep chat ma tuy va cong tac cai nghien.",
+    "expected_context": "Luat Phong chong ma tuy 2021"
+  },
+  {
+    "question": "Nghi dinh 105/2021 co vai tro gi doi voi Luat Phong chong ma tuy 2021?",
+    "expected_answer": "Nghi dinh 105/2021 la van ban huong dan thi hanh Luat Phong chong ma tuy 2021.",
+    "expected_context": "Nghi dinh 105/2021"
+  },
+  {
+    "question": "Thong tu lien tich ve danh muc chat ma tuy va tien chat dung de lam gi?",
+    "expected_answer": "Thong tu dung de quy dinh va cap nhat danh muc chat ma tuy va tien chat phuc vu quan ly nha nuoc.",
+    "expected_context": "Thong tu lien tich ve danh muc chat ma tuy va tien chat"
+  },
+  {
+    "question": "Bo luat Hinh su 2015 sua doi 2017 co chuong rieng nao ve cac toi pham ma tuy?",
+    "expected_answer": "Bo luat Hinh su co chuong rieng quy dinh cac toi pham ve ma tuy.",
+    "expected_context": "Bo luat Hinh su 2015 sua doi 2017, Chuong ve cac toi pham ma tuy"
+  },
+  {
+    "question": "Luat Phong chong ma tuy 2021 co lien quan gi den cong tac cai nghien bat buoc?",
+    "expected_answer": "Luat quy dinh co che cai nghien bat buoc tai co so cai nghien va cac nguyen tac quan ly lien quan.",
+    "expected_context": "Luat Phong chong ma tuy 2021, Chuong V"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1019053, nhung ai bi nhac ten trong vu an ma tuy o TP.HCM?",
+    "expected_answer": "Bai bao nhac den ca si Long Nhat va Son Ngoc Minh trong vu an ma tuy o TP.HCM.",
+    "expected_context": "vtcnews_ar1019053.md"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1019053, Long Nhat va Son Ngoc Minh bi khoi to ve toi gi?",
+    "expected_answer": "Hai nguoi bi khoi to ve toi to chuc su dung trai phep chat ma tuy.",
+    "expected_context": "vtcnews_ar1019053.md"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1014013, nhung nghe si nao duoc nhac den khi noi ve viec lien quan ma tuy?",
+    "expected_answer": "Bai bao nhac den Son Ngoc Minh, Long Nhat, Miu Le, Le Hang, An Tay va Chi Dan.",
+    "expected_context": "vtcnews_ar1014013.md"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1014013, Andrea Aybar con duoc goi bang ten nao?",
+    "expected_answer": "Andrea Aybar duoc goi la An Tay va ten Viet la Nguyen Thi An.",
+    "expected_context": "vtcnews_ar1014013.md"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1014013, Chi Dan lien quan den vu viec gi?",
+    "expected_answer": "Chi Dan bi phat hien duong tinh voi ma tuy va bi dieu tra trong vu viec lien quan ma tuy.",
+    "expected_context": "vtcnews_ar1014013.md"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1019818, NhiKolai Dinh lien quan den su viec nao?",
+    "expected_answer": "Bai bao de cap NhiKolai Dinh bi bat trong chuyen an ma tuy o khu Ma Lang, Quan 1.",
+    "expected_context": "vtcnews_ar1019818.md"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1019849, Nguyen Cong Tri lien quan den vu viec nao?",
+    "expected_answer": "Bai bao de cap nha thiet ke Nguyen Cong Tri bi bat vi lien quan den ma tuy.",
+    "expected_context": "vtcnews_ar1019849.md"
+  },
+  {
+    "question": "Theo bai vtcnews_ar1020014, An Tay bi truy to ve nhung toi danh nao?",
+    "expected_answer": "An Tay bi truy to ve toi tang tru trai phep chat ma tuy va to chuc su dung trai phep chat ma tuy.",
+    "expected_context": "vtcnews_ar1020014.md"
   }
 ]

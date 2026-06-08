@@ -263,7 +263,7 @@ pip install pageindex
 **Yêu cầu:**
 - Upload tài liệu lên PageIndex
 - Viết function query PageIndex và trả về kết quả
-```python
+```python@
 def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
     """
     Vectorless retrieval using PageIndex.
@@ -658,3 +658,76 @@ pytest tests/test_individual.py::TestTask5 -v
 - [Jina Reranker](https://jina.ai/reranker/) — Cross-encoder reranking API
 - Liu et al. (2023), *Lost in the Middle: How Language Models Use Long Contexts*
 # Day08_RAG_pipeline_cohort2
+
+---
+
+## Project Run Notes
+
+Phan nay dung de chay duoc project hien tai voi code da cau hinh.
+
+### Cau hinh dang dung
+
+- Chunking: `RecursiveCharacterTextSplitter`
+- Embedding model: `OpenAI text-embedding-3-small`
+- Vector store: `Weaviate Cloud`
+- Vectorless fallback: `PageIndex`
+- Reranking: `MMR`
+
+### Cai dat
+
+```bash
+pip install -r requirements.txt
+```
+
+Neu `pip` bi loi quyen tren Windows:
+
+```bash
+python -m pip install --user -r requirements.txt
+python -m pip install --user openai weaviate-client langchain-text-splitters rank-bm25 python-dotenv pageindex requests
+```
+
+### Tao `.env`
+
+Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Noi dung toi thieu:
+
+```env
+OPENAI_API_KEY=sk-xxx
+WEAVIATE_URL=https://xxx.weaviate.network
+WEAVIATE_API_KEY=xxx
+PAGEINDEX_API_KEY=pi_xxx
+PAGEINDEX_API_URL=https://api.pageindex.ai
+```
+
+### Thu tu chay de demo
+
+```bash
+# 1. Convert du lieu raw sang markdown
+python src/task3_convert_markdown.py
+
+# 2. Chunk + embed + index len Weaviate Cloud
+python src/task4_chunking_indexing.py
+
+# 3. Semantic search
+python src/task5_semantic_search.py
+
+# 4. Lexical search
+python src/task6_lexical_search.py
+
+# 5. Retrieval pipeline
+python src/task9_retrieval_pipeline.py
+
+# 6. Generation co citation
+python src/task10_generation.py
+```
+
+### Luu y
+
+- Task 4 va Task 5 can `OPENAI_API_KEY` va `WEAVIATE_URL` + `WEAVIATE_API_KEY`
+- Task 8 can `PAGEINDEX_API_KEY`
+- Neu chay file truc tiep bang `python src/taskX.py` thi import da duoc chinh de hoat dong

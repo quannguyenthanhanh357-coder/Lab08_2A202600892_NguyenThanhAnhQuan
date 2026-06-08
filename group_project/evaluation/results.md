@@ -1,56 +1,56 @@
 # RAG Evaluation Results
 
-## Framework sử dụng
+## Framework su dung
 
-> Ghi rõ framework đã chọn: DeepEval / RAGAS / TruLens
-
----
-
-## Overall Scores
-
-| Metric | Config A (hybrid + rerank) | Config B (dense-only) | Δ |
-|--------|---------------------------|----------------------|---|
-| Faithfulness | | | |
-| Answer Relevance | | | |
-| Context Recall | | | |
-| Context Precision | | | |
-| **Average** | | | |
+> RAGAS
 
 ---
 
-## A/B Comparison Analysis
+## Muc tieu
 
-**Config A:**
-> Mô tả config ...
-
-**Config B:**
-> Mô tả config ...
-
-**Kết luận:**
-> Config nào tốt hơn? Vì sao? (2-3 câu)
-
----
-
-## Worst Performers (Bottom 3)
-
-| # | Question | Faithfulness | Relevance | Recall | Failure Stage | Root Cause |
-|---|----------|-------------|-----------|--------|---------------|------------|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
+- Danh gia RAG pipeline tren bo QA tu tao >= 15 cau hoi
+- Do 4 metric:
+  - faithfulness
+  - answer_relevancy
+  - context_recall
+  - context_precision
+- So sanh A/B giua:
+  - Config A: hybrid retrieval + MMR reranking
+  - Config B: dense-only retrieval
 
 ---
 
-## Recommendations
+## Cach tao ket qua
 
-### Cải tiến 1
-**Action:**  
-**Expected impact:**  
+Chay:
 
-### Cải tiến 2
-**Action:**  
-**Expected impact:**  
+```bash
+python group_project/evaluation/eval_pipeline.py
+```
 
-### Cải tiến 3
-**Action:**  
-**Expected impact:**  
+Script se:
+
+1. Load `golden_dataset.json`
+2. Khoi tao pipeline A/B
+3. Chay RAGAS evaluation
+4. Ghi de file nay bang bang diem va phan tich moi nhat
+
+---
+
+## Trang thai hien tai
+
+File nay la template/report dau vao trong repo. Sau khi chay `eval_pipeline.py`,
+noi dung se duoc cap nhat thanh:
+
+- Bang diem tong hop
+- So sanh A/B
+- 3 truong hop worst performers
+- De xuat cai tien
+
+---
+
+## Ghi chu
+
+- Golden dataset duoc tao thu cong dua tren van ban phap luat va cac bai bao trong `data/standardized/`
+- Evaluation pipeline su dung `local_numpy` de tranh phu thuoc vao Weaviate khi danh gia nhom
+- Neu muon chay RAGAS day du, can cai them cac goi lien quan va cung cap `OPENAI_API_KEY`
