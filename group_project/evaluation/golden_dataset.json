@@ -1,82 +1,62 @@
 [
   {
-    "question": "Dieu 249 Bo luat Hinh su 2015 sua doi 2017 quy dinh ve toi gi?",
-    "expected_answer": "Dieu 249 quy dinh ve toi tang tru trai phep chat ma tuy.",
-    "expected_context": "Bo luat Hinh su 2015 sua doi 2017, Dieu 249"
+    "question": "Mức phạt cơ bản đối với tội tàng trữ trái phép chất ma túy theo Bộ luật Hình sự 2015 là gì?",
+    "expected_answer": "Theo Điều 249 Bộ luật Hình sự 2015 (sửa đổi, bổ sung 2017), người nào tàng trữ trái phép chất ma túy mà không nhằm mục đích mua bán, vận chuyển, sản xuất trái phép chất ma túy thì bị phạt tù từ 01 năm đến 05 năm đối với các trường hợp vi phạm cơ bản. Tùy thuộc vào loại và khối lượng ma túy, mức phạt có thể tăng lên đến 20 năm hoặc tù chung thân."
   },
   {
-    "question": "Dieu 255 Bo luat Hinh su quy dinh ve hanh vi nao lien quan den ma tuy?",
-    "expected_answer": "Dieu 255 quy dinh ve toi to chuc su dung trai phep chat ma tuy.",
-    "expected_context": "Bo luat Hinh su 2015 sua doi 2017, Dieu 255"
+    "question": "Theo Luật Phòng, chống ma túy 2021, khi nào một người bị đưa vào cơ sở cai nghiện bắt buộc?",
+    "expected_answer": "Theo Điều 32 Luật Phòng, chống ma túy 2021, người từ đủ 18 tuổi trở lên bị đưa vào cơ sở cai nghiện bắt buộc khi thuộc một trong các trường hợp: Không đăng ký, không thực hiện hoặc tự ý chấm dứt cai nghiện tự nguyện; Bị phát hiện sử dụng trái phép chất ma túy trong thời gian cai nghiện tự nguyện; hoặc Người nghiện ma túy các chất dạng thuốc phiện không đăng ký, không thực hiện hoặc tự ý chấm dứt điều trị thay thế."
   },
   {
-    "question": "Luat Phong chong ma tuy 2021 quy dinh nhung hinh thuc cai nghien nao?",
-    "expected_answer": "Luat quy dinh cai nghien tu nguyen tai gia dinh, tai cong dong, tai co so cai nghien va cai nghien bat buoc tai co so cai nghien.",
-    "expected_context": "Luat Phong chong ma tuy 2021, Chuong V"
+    "question": "Cơ quan nào có thẩm quyền ra quyết định đưa người nghiện ma túy vào cơ sở cai nghiện bắt buộc?",
+    "expected_answer": "Theo Luật Phòng, chống ma túy 2021, Tòa án nhân dân cấp huyện là cơ quan có thẩm quyền ra quyết định áp dụng biện pháp xử lý hành chính đưa vào cơ sở cai nghiện bắt buộc đối với người từ đủ 18 tuổi trở lên."
   },
   {
-    "question": "Luat Phong chong ma tuy 2021 tap trung dieu chinh nhung noi dung lon nao?",
-    "expected_answer": "Van ban tap trung vao phong ngua, dau tranh toi pham ma tuy, quan ly nguoi su dung trai phep chat ma tuy va cong tac cai nghien.",
-    "expected_context": "Luat Phong chong ma tuy 2021"
+    "question": "Gần đây có những nghệ sĩ nổi tiếng nào của Việt Nam bị bắt giữ liên quan đến ma túy?",
+    "expected_answer": "Theo các thông tin báo chí thời gian qua, một số nghệ sĩ Việt Nam đã bị cơ quan công an điều tra, khởi tố vì liên quan đến hành vi tổ chức hoặc sử dụng trái phép chất ma túy, tiêu biểu như ca sĩ Miu Lê, ca sĩ Chi Dân, người mẫu An Tây (Andrea Aybar), và người mẫu Trúc Phương."
   },
   {
-    "question": "Nghi dinh 105/2021 co vai tro gi doi voi Luat Phong chong ma tuy 2021?",
-    "expected_answer": "Nghi dinh 105/2021 la van ban huong dan thi hanh Luat Phong chong ma tuy 2021.",
-    "expected_context": "Nghi dinh 105/2021"
+    "question": "Cần sa có bị coi là ma túy hợp pháp tại Việt Nam không?",
+    "expected_answer": "Không. Theo quy định của pháp luật Việt Nam, cần sa và các chế phẩm từ cần sa được xếp vào danh mục các chất ma túy tuyệt đối cấm sử dụng trong y học và đời sống xã hội. Mọi hành vi tàng trữ, mua bán, vận chuyển hay sử dụng cần sa đều là hành vi vi phạm pháp luật nghiêm trọng."
   },
   {
-    "question": "Thong tu lien tich ve danh muc chat ma tuy va tien chat dung de lam gi?",
-    "expected_answer": "Thong tu dung de quy dinh va cap nhat danh muc chat ma tuy va tien chat phuc vu quan ly nha nuoc.",
-    "expected_context": "Thong tu lien tich ve danh muc chat ma tuy va tien chat"
+    "question": "Tội tổ chức sử dụng trái phép chất ma túy có mức phạt cao nhất là bao nhiêu?",
+    "expected_answer": "Theo Điều 255 Bộ luật Hình sự 2015, tội tổ chức sử dụng trái phép chất ma túy có khung hình phạt cao nhất là tù chung thân, áp dụng cho các trường hợp đặc biệt nghiêm trọng như gây tổn hại sức khỏe nặng nề cho nạn nhân hoặc làm chết nhiều người."
   },
   {
-    "question": "Bo luat Hinh su 2015 sua doi 2017 co chuong rieng nao ve cac toi pham ma tuy?",
-    "expected_answer": "Bo luat Hinh su co chuong rieng quy dinh cac toi pham ve ma tuy.",
-    "expected_context": "Bo luat Hinh su 2015 sua doi 2017, Chuong ve cac toi pham ma tuy"
+    "question": "Việc người dân tự ý trồng cây có chứa chất ma túy (như cần sa, anh túc) bị xử phạt như thế nào?",
+    "expected_answer": "Hành vi trồng cây có chứa chất ma túy bị nghiêm cấm theo Luật Phòng, chống ma túy. Người vi phạm có thể bị phạt hành chính hoặc bị phạt tù từ 06 tháng đến 07 năm tùy theo số lượng cây (ví dụ: từ 500 cây trở lên) hoặc trường hợp đã bị xử phạt mà vẫn tái phạm (Căn cứ theo Điều 247 BLHS 2015)."
   },
   {
-    "question": "Luat Phong chong ma tuy 2021 co lien quan gi den cong tac cai nghien bat buoc?",
-    "expected_answer": "Luat quy dinh co che cai nghien bat buoc tai co so cai nghien va cac nguyen tac quan ly lien quan.",
-    "expected_context": "Luat Phong chong ma tuy 2021, Chuong V"
+    "question": "Người bị quản lý sau cai nghiện ma túy tại nơi cư trú có thời hạn bao lâu?",
+    "expected_answer": "Theo Điều 33 Luật Phòng, chống ma túy 2021, thời hạn quản lý sau cai nghiện ma túy đối với người từ đủ 12 tuổi đến dưới 18 tuổi là 01 năm, và đối với người từ đủ 18 tuổi trở lên là 02 năm kể từ ngày hoàn thành quá trình cai nghiện."
   },
   {
-    "question": "Theo bai vtcnews_ar1019053, nhung ai bi nhac ten trong vu an ma tuy o TP.HCM?",
-    "expected_answer": "Bai bao nhac den ca si Long Nhat va Son Ngoc Minh trong vu an ma tuy o TP.HCM.",
-    "expected_context": "vtcnews_ar1019053.md"
+    "question": "Biện pháp cai nghiện ma túy tự nguyện tại gia đình, cộng đồng có còn được áp dụng theo Luật Phòng, chống ma túy 2021 không?",
+    "expected_answer": "Theo Luật Phòng, chống ma túy 2021, biện pháp cai nghiện ma túy bao gồm cai nghiện tự nguyện và cai nghiện bắt buộc. Pháp luật vẫn khuyến khích và cho phép áp dụng biện pháp cai nghiện ma túy tự nguyện tại gia đình và cộng đồng dưới sự hỗ trợ của y tế cơ sở và chính quyền địa phương."
   },
   {
-    "question": "Theo bai vtcnews_ar1019053, Long Nhat va Son Ngoc Minh bi khoi to ve toi gi?",
-    "expected_answer": "Hai nguoi bi khoi to ve toi to chuc su dung trai phep chat ma tuy.",
-    "expected_context": "vtcnews_ar1019053.md"
+    "question": "Hành vi xúi giục hoặc lôi kéo người khác sử dụng trái phép chất ma túy bị xử lý ra sao?",
+    "expected_answer": "Theo Điều 258 Bộ luật Hình sự 2015, người có hành vi xúi giục hoặc lôi kéo người khác sử dụng trái phép chất ma túy có thể bị phạt tù từ 01 năm đến 05 năm. Khung hình phạt có thể tăng nặng (đến 15 năm hoặc 20 năm) nếu phạm tội nhiều lần, phạm tội đối với người dưới 18 tuổi hoặc gây hậu quả chết người."
   },
   {
-    "question": "Theo bai vtcnews_ar1014013, nhung nghe si nao duoc nhac den khi noi ve viec lien quan ma tuy?",
-    "expected_answer": "Bai bao nhac den Son Ngoc Minh, Long Nhat, Miu Le, Le Hang, An Tay va Chi Dan.",
-    "expected_context": "vtcnews_ar1014013.md"
+    "question": "Trách nhiệm của gia đình đối với người nghiện ma túy được quy định thế nào?",
+    "expected_answer": "Theo Luật Phòng, chống ma túy 2021, gia đình có trách nhiệm hỗ trợ, động viên người nghiện ma túy tham gia cai nghiện; quản lý, giám sát và phòng ngừa việc tái nghiện; đồng thời có nghĩa vụ phải phối hợp chặt chẽ với cơ quan chức năng trong việc lập hồ sơ và tổ chức đưa người đi cai nghiện."
   },
   {
-    "question": "Theo bai vtcnews_ar1014013, Andrea Aybar con duoc goi bang ten nao?",
-    "expected_answer": "Andrea Aybar duoc goi la An Tay va ten Viet la Nguyen Thi An.",
-    "expected_context": "vtcnews_ar1014013.md"
+    "question": "Tội mua bán trái phép chất ma túy có thể phải đối mặt với hình phạt tử hình không?",
+    "expected_answer": "Có. Theo quy định tại Điều 251 Bộ luật Hình sự 2015, người phạm tội mua bán trái phép chất ma túy với khối lượng đặc biệt lớn (ví dụ: Heroine, Cocaine từ 100 gram trở lên, hoặc Methamphetamine từ 300 gram trở lên) có thể bị kết án 20 năm tù, tù chung thân hoặc tử hình."
   },
   {
-    "question": "Theo bai vtcnews_ar1014013, Chi Dan lien quan den vu viec gi?",
-    "expected_answer": "Chi Dan bi phat hien duong tinh voi ma tuy va bi dieu tra trong vu viec lien quan ma tuy.",
-    "expected_context": "vtcnews_ar1014013.md"
+    "question": "Ma túy \"nước vui\" hay \"bùa lưỡi\" thuộc nhóm chất nào và có tác hại ra sao?",
+    "expected_answer": "Các loại \"nước vui\" (chứa MDMA, Ketamine...) hay \"bùa lưỡi\" (LSD) là các loại ma túy tổng hợp thế hệ mới. Chúng tác động trực tiếp và kích thích mạnh mẽ hệ thần kinh trung ương, gây ra ảo giác nặng. Lạm dụng chúng có thể gây tổn thương não bộ, suy hô hấp, đột quỵ và đe dọa trực tiếp đến tính mạng."
   },
   {
-    "question": "Theo bai vtcnews_ar1019818, NhiKolai Dinh lien quan den su viec nao?",
-    "expected_answer": "Bai bao de cap NhiKolai Dinh bi bat trong chuyen an ma tuy o khu Ma Lang, Quan 1.",
-    "expected_context": "vtcnews_ar1019818.md"
+    "question": "Việc nghệ sĩ nổi tiếng sử dụng ma túy gây ảnh hưởng như thế nào đối với giới trẻ?",
+    "expected_answer": "Nghệ sĩ và những người nổi tiếng thường có lượng lớn người hâm mộ trẻ tuổi theo dõi. Việc họ sử dụng ma túy không chỉ là vi phạm pháp luật mà còn tạo ra sự cổ xúy lối sống tiêu cực, có thể vô tình khiến giới trẻ tò mò và dễ dàng bị lôi kéo học theo các hành vi lệch chuẩn xã hội."
   },
   {
-    "question": "Theo bai vtcnews_ar1019849, Nguyen Cong Tri lien quan den vu viec nao?",
-    "expected_answer": "Bai bao de cap nha thiet ke Nguyen Cong Tri bi bat vi lien quan den ma tuy.",
-    "expected_context": "vtcnews_ar1019849.md"
-  },
-  {
-    "question": "Theo bai vtcnews_ar1020014, An Tay bi truy to ve nhung toi danh nao?",
-    "expected_answer": "An Tay bi truy to ve toi tang tru trai phep chat ma tuy va to chuc su dung trai phep chat ma tuy.",
-    "expected_context": "vtcnews_ar1020014.md"
+    "question": "Các cơ sở kinh doanh dịch vụ (như quán bar, karaoke) để xảy ra tình trạng sử dụng ma túy bị xử lý thế nào?",
+    "expected_answer": "Chủ cơ sở kinh doanh dịch vụ nếu thiếu trách nhiệm để xảy ra hoạt động sử dụng ma túy sẽ bị phạt vi phạm hành chính, tước giấy phép kinh doanh. Nếu cố ý bao che, cho thuê địa điểm để sử dụng ma túy, họ sẽ bị truy cứu trách nhiệm hình sự về tội \"Chứa chấp việc sử dụng trái phép chất ma túy\" theo Điều 256 BLHS 2015 với mức án có thể lên đến 15 năm tù."
   }
 ]

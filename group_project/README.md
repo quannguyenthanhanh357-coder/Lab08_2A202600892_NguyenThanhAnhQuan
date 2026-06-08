@@ -1,146 +1,133 @@
-# Group Project — Requirement 1 (RAG Chatbot bằng Streamlit)
+# Group Project - Requirement 2 (RAG Evaluation Pipeline bang RAGAS)
 
-Triển khai này hoàn thành **Yêu cầu 1**:
-- Streamlit chat UI
-- Câu trả lời có citation
-- Cho phép chọn splitter / embedding model / reranking
-- Cho phép chọn vector store: `local_numpy` hoặc `weaviate_cloud`
-- Hỗ trợ follow-up questions với conversation memory
-- Hiển thị source documents được dùng khi trả lời
+Trien khai nay hoan thanh **Yeu cau 2**:
+- Su dung **RAGAS** de evaluate chat luong RAG pipeline
+- Co **golden dataset tu tao** voi it nhat 15 cap Q&A
+- Chay day du 4 metrics: faithfulness, answer relevancy, context recall, context precision
+- So sanh **A/B** giua it nhat 2 cau hinh retrieval
+- Xuat bao cao tong hop ket qua va phan tich worst performers
 
 ----
 
-## Files chính
+## Files chinh
 
-- `group_project/app.py`: Streamlit app
-- `group_project/rag_chatbot.py`: backend RAG configurable
-
----
-
-## Điều kiện môi trường
-
-Điền các biến này trong `.env`:
-
-```bash
-OPENAI_API_KEY=...
-WEAVIATE_URL=https://<cluster>.weaviate.network
-WEAVIATE_API_KEY=...
-```
-
-Nếu chỉ dùng `local_numpy`, bạn chỉ cần `OPENAI_API_KEY`.
+- `group_project/evaluation/golden_dataset.json`: bo QA tu tao
+- `group_project/evaluation/eval_pipeline.py`: script chay evaluation bang RAGAS
+- `group_project/evaluation/results.md`: bao cao diem so, A/B comparison, phan tich
 
 ---
 
-## Chạy ứng dụng
+## Framework duoc chon
 
-Từ thư mục `Lab/Day08-lab-assignment`:
+- Framework: `RAGAS`
+- Cac metrics:
+  - `faithfulness`
+  - `answer_relevancy`
+  - `context_recall`
+  - `context_precision`
+
+Framework nay duoc chon vi phu hop truc tiep voi bai toan RAG, de so sanh retrieval va generation tren cung mot bo cau hoi chuan.
+
+---
+
+## Golden Dataset tu tao
+
+Bo QA duoc tao thu cong tu chinh tap du lieu cua project:
+
+- Van ban phap luat ve phong, chong ma tuy
+- Cac bai bao tin tuc lien quan den nghe si va ma tuy
+
+File:
+
+- `group_project/evaluation/golden_dataset.json`
+
+Bo du lieu hien tai gom **16 cap Q&A tu tao**, moi item co:
+
+- `question`
+- `expected_answer`
+- `expected_context`
+
+---
+
+## A/B Comparison
+
+Evaluation hien tai so sanh 2 cau hinh:
+
+1. `Config A (hybrid + mmr)`
+   - Semantic search + lexical search
+   - Reranking bang `MMR`
+
+2. `Config B (dense-only)`
+   - Chi dung semantic search
+   - Khong reranking
+
+Muc tieu la kiem tra xem hybrid retrieval + reranking co giup tang chat luong retrieval/generation so voi dense-only hay khong.
+
+---
+
+## Cach chay evaluation
+
+Tu thu muc goc cua project:
 
 ```bash
 pip install -r requirements.txt
-streamlit run group_project/app.py
+python group_project/evaluation/eval_pipeline.py
 ```
 
----
+Script se:
 
-## Cách demo nhanh
-
-1. Mở sidebar, chọn:
-   - Splitter
-   - Embedding model
-   - Reranking method
-   - Chunk size / overlap / threshold / top-k
-2. Bấm `Build/Rebuild Weaviate index`.
-3. Đặt câu hỏi trong chat.
-4. Xem:
-   - Câu trả lời có citation trong nội dung
-   - `Retrieval query` (khi bật conversation memory)
-   - Panel `Source documents đã dùng` để kiểm tra evidence
+1. Load golden dataset tu tao
+2. Chay RAG pipeline tren tung cau hoi
+3. Tinh 4 metrics bang RAGAS
+4. So sanh 2 config A/B
+5. Ghi bao cao vao `group_project/evaluation/results.md`
 
 ---
 
-## Ghi chú về citation
+## Ghi chu ve pipeline eval
 
-- Prompt generation bắt buộc mỗi claim có trích dẫn `[source]`.
-- Nếu thiếu bằng chứng từ context, chatbot trả về:
-  `Tôi không thể xác minh thông tin này từ nguồn hiện có.`
+- `eval_pipeline.py` hien tai dung `EvalRAGPipeline` de wrap pipeline truy xuat va generation
+- Khi co `OPENAI_API_KEY`, pipeline co the sinh answer bang LLM
+- Neu thieu key hoac phat sinh loi khi goi model, pipeline van co fallback answer de quy trinh evaluation khong bi dung giua chung
 
 ---
 
-## Kiến Trúc Hệ Thống
+## Kien Truc Requirement 2
 
 ```mermaid
 flowchart TB
-    subgraph Data["Data Pipeline (Bài cá nhân)"]
-        T1[Task 1-2: Thu thập legal + news]
-        T3[Task 3: Convert Markdown]
-        T4[Task 4: Chunking + Embedding + Index]
-        Landing[(data/landing)]
-        Std[(data/standardized)]
-        T1 --> Landing --> T3 --> Std --> T4
-    end
+    Golden[golden_dataset.json<br/>16 Q&A tu tao]
+    Eval[eval_pipeline.py]
+    ConfigA[Config A<br/>hybrid + mmr]
+    ConfigB[Config B<br/>dense-only]
+    Metrics[RAGAS Metrics<br/>faithfulness<br/>answer_relevancy<br/>context_recall<br/>context_precision]
+    Report[results.md]
 
-    subgraph Chatbot["Yêu cầu 1 — RAG Chatbot (Streamlit)"]
-        UI[app.py — Streamlit UI]
-        Config[Sidebar Config<br/>splitter / embedding / vector store / rerank]
-        Agent[LLM Agent — gpt-4o-mini]
-        Tool[Tool: search_context]
-        Memory[Conversation Memory<br/>query rewrite]
-        Gen[Generation + Citation]
-        Sources[Source Documents Panel]
-
-        UI --> Config
-        UI --> Agent
-        Agent -->|trong domain| Tool
-        Agent -->|ngoài domain| Reject[Từ chối — không gọi tool]
-        Memory --> Agent
-        Tool --> Gen
-        Gen --> UI
-        Tool --> Sources
-    end
-
-    subgraph Retrieval["Retrieval Backend — rag_chatbot.py"]
-        Chunk[Chunking<br/>Recursive / MarkdownHeader / Semantic]
-        Embed[OpenAI Embeddings]
-        VS{{Vector Store<br/>local_numpy hoặc Weaviate Cloud}}
-        Sem[Semantic Search]
-        Lex[BM25 Lexical Search]
-        Merge[RRF Merge]
-        Rerank[Rerank<br/>none / rrf / mmr / cross_encoder]
-
-        Chunk --> Embed --> VS
-        VS --> Sem
-        VS --> Lex
-        Sem --> Merge
-        Lex --> Merge
-        Merge --> Rerank
-    end
-
-    subgraph Eval["Yêu cầu 2 — Evaluation Pipeline"]
-        Golden[golden_dataset.json<br/>15+ Q&A pairs]
-        EvalScript[eval_pipeline.py]
-        Metrics[4 Metrics<br/>Faithfulness / Answer Relevance<br/>Context Recall / Context Precision]
-        AB[A/B Config Comparison]
-        Report[results.md]
-
-        Golden --> EvalScript
-        EvalScript --> Metrics
-        Metrics --> AB --> Report
-    end
-
-    Std --> Chunk
-    T4 -.-> VS
-    Rerank --> Tool
-    Chatbot --> EvalScript
+    Golden --> Eval
+    Eval --> ConfigA
+    Eval --> ConfigB
+    ConfigA --> Metrics
+    ConfigB --> Metrics
+    Metrics --> Report
 ```
 
 ---
 
-## Phân Công Công Việc
+## Phan Cong Cong Viec
 
-| Thành viên | MSSV | Nhiệm vụ | Trạng thái |
+| Thanh vien | MSSV | Nhiem vu | Trang thai |
 | --- | --- | --- | --- |
-| Trịnh Thị Lan Anh | 2A202600737 | **Tích hợp pipeline + Streamlit UI** — `group_project/app.py`: giao diện chat, sidebar config (splitter/embedding/vector store/rerank), build index, hiển thị source panel, chuẩn bị demo | Done |
-| Nguyễn Mạnh Quý | 2A202600643 | **Retrieval backend** — `group_project/rag_chatbot.py`: chunking, embedding, index (`local_numpy` / Weaviate), semantic + BM25 hybrid search, reranking | Done |
-| Nguyễn Thanh Anh Quân | 2A202600892 | **Agent & Generation** — tool `search_context`, domain gating (chỉ gọi tool khi liên quan dataset), citation, conversation memory / query rewrite | Done |
-| Nguyễn Đình Bảo Long | 2A202600981 | **Golden dataset + Eval pipeline** — `evaluation/golden_dataset.json` (≥15 Q&A), `evaluation/eval_pipeline.py` chạy 4 metrics (Faithfulness, Answer Relevance, Context Recall, Context Precision) | Done |
-| Phạm Hoài Nam | 2A202600954 | **A/B evaluation + Báo cáo + Docs** — so sánh ≥2 config (vd. có/không rerank), `evaluation/results.md` (worst performers + đề xuất), README kiến trúc + diagram | Done |
+| Trinh Thi Lan Anh | 2A202600737 | Tong hop README nhom va mo ta kien truc Requirement 2 | Done |
+| Nguyen Manh Quy | 2A202600643 | Tich hop retrieval pipeline de phuc vu evaluation | Done |
+| Nguyen Thanh Anh Quan | 2A202600892 | Chinh generation/retrieval output de dua vao eval pipeline | Done |
+| Nguyen Dinh Bao Long | 2A202600981 | Tao golden dataset 15+ cap Q&A va script RAGAS | Done |
+| Pham Hoai Nam | 2A202600954 | A/B comparison, results.md va phan tich worst performers | Done |
+
+---
+
+## Deliverables da dat
+
+- [x] `group_project/evaluation/golden_dataset.json` - 15+ cap Q&A
+- [x] `group_project/evaluation/eval_pipeline.py` - script chay evaluation
+- [x] `group_project/evaluation/results.md` - bang diem va phan tich
+- [x] So sanh A/B it nhat 2 configs

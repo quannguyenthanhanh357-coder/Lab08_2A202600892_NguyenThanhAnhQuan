@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import types
 from pathlib import Path
 from statistics import mean
 
@@ -133,7 +134,24 @@ def evaluate_with_deepeval(rag_pipeline, golden_dataset: list[dict]) -> dict:
 
 def _score_config(config_name: str, rag_pipeline: EvalRAGPipeline, golden_dataset: list[dict]) -> dict:
     from datasets import Dataset
-    from ragas import evaluate
+    from langchain_openai import OpenAIEmbeddings
+
+    try:
+        from ragas import evaluate
+    except ModuleNotFoundError as exc:
+        if exc.name != "langchain_community.chat_models.vertexai":
+            raise
+
+        # Compatibility shim for current langchain-community build used in this environment.
+        shim = types.ModuleType("langchain_community.chat_models.vertexai")
+
+        class ChatVertexAI:  # pragma: no cover - import shim only
+            pass
+
+        shim.ChatVertexAI = ChatVertexAI
+        sys.modules["langchain_community.chat_models.vertexai"] = shim
+        from ragas import evaluate
+
     from ragas.metrics import (
         answer_relevancy,
         context_precision,
@@ -155,7 +173,7 @@ def _score_config(config_name: str, rag_pipeline: EvalRAGPipeline, golden_datase
             {
                 "question": item["question"],
                 "expected_answer": item["expected_answer"],
-                "expected_context": item["expected_context"],
+                "expected_context": item.get("expected_context", ""),
                 "answer": result["answer"],
                 "contexts": contexts,
                 "retrieval_source": result["retrieval_source"],
@@ -163,13 +181,16 @@ def _score_config(config_name: str, rag_pipeline: EvalRAGPipeline, golden_datase
         )
 
     dataset = Dataset.from_dict(eval_data)
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     result = evaluate(
         dataset,
         metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
+        embeddings=embeddings,
     )
     frame = result.to_pandas()
     rows = frame.to_dict(orient="records")
     metric_names = ["faithfulness", "answer_relevancy", "context_recall", "context_precision"]
+
     aggregates = {
         metric: float(mean([row[metric] for row in rows if row.get(metric) is not None]))
         for metric in metric_names
