@@ -1,62 +1,77 @@
 [
   {
     "question": "Mức phạt cơ bản đối với tội tàng trữ trái phép chất ma túy theo Bộ luật Hình sự 2015 là gì?",
-    "expected_answer": "Theo Điều 249 Bộ luật Hình sự 2015 (sửa đổi, bổ sung 2017), người nào tàng trữ trái phép chất ma túy mà không nhằm mục đích mua bán, vận chuyển, sản xuất trái phép chất ma túy thì bị phạt tù từ 01 năm đến 05 năm đối với các trường hợp vi phạm cơ bản. Tùy thuộc vào loại và khối lượng ma túy, mức phạt có thể tăng lên đến 20 năm hoặc tù chung thân."
+    "expected_answer": "Theo Điều 249 Bộ luật Hình sự 2015 (sửa đổi, bổ sung 2017), người nào tàng trữ trái phép chất ma túy mà không nhằm mục đích mua bán, vận chuyển, sản xuất trái phép chất ma túy thì bị phạt tù từ 03 năm đến 05 năm đối với các trường hợp vi phạm cơ bản. Tùy thuộc vào loại và khối lượng ma túy, mức phạt có thể tăng lên đến 20 năm hoặc tù chung thân.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Điều 249. Tội tàng trữ trái phép chất ma túy: Người nào tàng trữ trái phép chất ma túy mà không nhằm mục đích mua bán, vận chuyển, sản xuất trái phép chất ma túy thuộc một trong các trường hợp quy định thì bị phạt tù từ 03 năm đến 05 năm; các khung tăng nặng có thể lên đến 15 năm đến 20 năm hoặc tù chung thân."
   },
   {
     "question": "Theo Luật Phòng, chống ma túy 2021, khi nào một người bị đưa vào cơ sở cai nghiện bắt buộc?",
-    "expected_answer": "Theo Điều 32 Luật Phòng, chống ma túy 2021, người từ đủ 18 tuổi trở lên bị đưa vào cơ sở cai nghiện bắt buộc khi thuộc một trong các trường hợp: Không đăng ký, không thực hiện hoặc tự ý chấm dứt cai nghiện tự nguyện; Bị phát hiện sử dụng trái phép chất ma túy trong thời gian cai nghiện tự nguyện; hoặc Người nghiện ma túy các chất dạng thuốc phiện không đăng ký, không thực hiện hoặc tự ý chấm dứt điều trị thay thế."
+    "expected_answer": "Theo Điều 32 Luật Phòng, chống ma túy 2021, người nghiện ma túy từ đủ 18 tuổi trở lên bị áp dụng biện pháp đưa vào cơ sở cai nghiện bắt buộc khi không đăng ký, không thực hiện hoặc tự ý chấm dứt cai nghiện tự nguyện; bị phát hiện sử dụng trái phép chất ma túy trong thời gian cai nghiện tự nguyện; không thực hiện hoặc chấm dứt điều trị thay thế; hoặc tái nghiện trong thời gian quản lý sau cai nghiện.",
+    "expected_context": "data/standardized/legal/luat-phong-chong-ma-tuy-2021.md - Điều 32. Đối tượng bị áp dụng biện pháp xử lý hành chính đưa vào cơ sở cai nghiện bắt buộc: Người nghiện ma túy từ đủ 18 tuổi trở lên bị đưa vào cơ sở cai nghiện bắt buộc khi không đăng ký, không thực hiện hoặc tự ý chấm dứt cai nghiện tự nguyện; trong thời gian cai nghiện tự nguyện bị phát hiện sử dụng trái phép chất ma túy; không thực hiện điều trị thay thế; hoặc trong thời gian quản lý sau cai nghiện mà tái nghiện."
   },
   {
     "question": "Cơ quan nào có thẩm quyền ra quyết định đưa người nghiện ma túy vào cơ sở cai nghiện bắt buộc?",
-    "expected_answer": "Theo Luật Phòng, chống ma túy 2021, Tòa án nhân dân cấp huyện là cơ quan có thẩm quyền ra quyết định áp dụng biện pháp xử lý hành chính đưa vào cơ sở cai nghiện bắt buộc đối với người từ đủ 18 tuổi trở lên."
+    "expected_answer": "Theo Luật Phòng, chống ma túy 2021, Tòa án nhân dân cấp huyện là cơ quan có thẩm quyền ra quyết định đưa người nghiện ma túy vào cơ sở cai nghiện bắt buộc đối với trường hợp người từ đủ 12 tuổi đến dưới 18 tuổi; hồ sơ đề nghị cũng được chuyển đến Tòa án nhân dân cấp huyện để xem xét, quyết định.",
+    "expected_context": "data/standardized/legal/luat-phong-chong-ma-tuy-2021.md - Điều 33 khoản 4 quy định việc đưa người nghiện ma túy từ đủ 12 tuổi đến dưới 18 tuổi vào cơ sở cai nghiện bắt buộc do Tòa án nhân dân cấp huyện quyết định. Điều 34 cũng nêu hồ sơ đề nghị được chuyển đến Tòa án nhân dân cấp huyện quyết định đưa vào cơ sở cai nghiện bắt buộc."
   },
   {
     "question": "Gần đây có những nghệ sĩ nổi tiếng nào của Việt Nam bị bắt giữ liên quan đến ma túy?",
-    "expected_answer": "Theo các thông tin báo chí thời gian qua, một số nghệ sĩ Việt Nam đã bị cơ quan công an điều tra, khởi tố vì liên quan đến hành vi tổ chức hoặc sử dụng trái phép chất ma túy, tiêu biểu như ca sĩ Miu Lê, ca sĩ Chi Dân, người mẫu An Tây (Andrea Aybar), và người mẫu Trúc Phương."
+    "expected_answer": "Theo các bài báo đã crawl, một số nghệ sĩ/người nổi tiếng được nhắc đến trong các vụ việc liên quan đến ma túy gồm Long Nhật, Sơn Ngọc Minh, Miu Lê, Chi Dân, Andrea Aybar (An Tây), Nguyễn Công Trí và Bình Gold.",
+    "expected_context": "data/standardized/news/vtcnews_ar1020014.md - Bài viết nêu Long Nhật và Sơn Ngọc Minh bị bắt trong vụ việc liên quan đến ma túy; Miu Lê bị khởi tố để điều tra hành vi tổ chức sử dụng trái phép chất ma túy; Nguyễn Công Trí và Bình Gold cũng bị bắt vì liên quan chất cấm. Bài cũng nêu năm 2024 Chi Dân và Andrea Aybar bị khởi tố, bắt khẩn cấp để điều tra hành vi tàng trữ và tổ chức sử dụng trái phép chất ma túy."
   },
   {
     "question": "Cần sa có bị coi là ma túy hợp pháp tại Việt Nam không?",
-    "expected_answer": "Không. Theo quy định của pháp luật Việt Nam, cần sa và các chế phẩm từ cần sa được xếp vào danh mục các chất ma túy tuyệt đối cấm sử dụng trong y học và đời sống xã hội. Mọi hành vi tàng trữ, mua bán, vận chuyển hay sử dụng cần sa đều là hành vi vi phạm pháp luật nghiêm trọng."
+    "expected_answer": "Không. Trong các văn bản pháp luật của Việt Nam, cần sa và các bộ phận của cây cần sa được liệt kê trong nhóm chất/cây có chứa chất ma túy; các hành vi tàng trữ, vận chuyển, mua bán trái phép liên quan đến cần sa có thể bị xử lý hình sự tùy khối lượng và hành vi.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Điều 249 liệt kê nhựa cần sa và lá, rễ, thân, cành, hoa, quả của cây cần sa hoặc bộ phận của cây khác có chứa chất ma túy trong các định lượng xử lý tội tàng trữ trái phép chất ma túy. Các điều 250 và 251 cũng liệt kê cần sa trong tội vận chuyển, mua bán trái phép chất ma túy."
   },
   {
     "question": "Tội tổ chức sử dụng trái phép chất ma túy có mức phạt cao nhất là bao nhiêu?",
-    "expected_answer": "Theo Điều 255 Bộ luật Hình sự 2015, tội tổ chức sử dụng trái phép chất ma túy có khung hình phạt cao nhất là tù chung thân, áp dụng cho các trường hợp đặc biệt nghiêm trọng như gây tổn hại sức khỏe nặng nề cho nạn nhân hoặc làm chết nhiều người."
+    "expected_answer": "Theo Điều 255 Bộ luật Hình sự 2015, tội tổ chức sử dụng trái phép chất ma túy có khung hình phạt cao nhất là tù chung thân đối với các trường hợp đặc biệt nghiêm trọng theo quy định.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Điều 255. Tội tổ chức sử dụng trái phép chất ma túy: các khung hình phạt tăng dần theo tình tiết; khung cao nhất quy định phạt tù 20 năm hoặc tù chung thân đối với các trường hợp đặc biệt nghiêm trọng."
   },
   {
     "question": "Việc người dân tự ý trồng cây có chứa chất ma túy (như cần sa, anh túc) bị xử phạt như thế nào?",
-    "expected_answer": "Hành vi trồng cây có chứa chất ma túy bị nghiêm cấm theo Luật Phòng, chống ma túy. Người vi phạm có thể bị phạt hành chính hoặc bị phạt tù từ 06 tháng đến 07 năm tùy theo số lượng cây (ví dụ: từ 500 cây trở lên) hoặc trường hợp đã bị xử phạt mà vẫn tái phạm (Căn cứ theo Điều 247 BLHS 2015)."
+    "expected_answer": "Hành vi trồng cây có chứa chất ma túy bị nghiêm cấm và có thể bị xử lý hình sự theo Điều 247 Bộ luật Hình sự 2015 nếu đủ điều kiện, với các khung phạt tù tùy số lượng cây và tình tiết vi phạm.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Điều 247. Tội trồng cây thuốc phiện, cây côca, cây cần sa hoặc các loại cây khác có chứa chất ma túy: người phạm tội có thể bị phạt tù theo các khung khác nhau nếu đã được giáo dục, tạo điều kiện ổn định cuộc sống hoặc đã bị xử phạt hành chính mà còn vi phạm, hoặc trồng với số lượng cây thuộc các mức luật định."
   },
   {
     "question": "Người bị quản lý sau cai nghiện ma túy tại nơi cư trú có thời hạn bao lâu?",
-    "expected_answer": "Theo Điều 33 Luật Phòng, chống ma túy 2021, thời hạn quản lý sau cai nghiện ma túy đối với người từ đủ 12 tuổi đến dưới 18 tuổi là 01 năm, và đối với người từ đủ 18 tuổi trở lên là 02 năm kể từ ngày hoàn thành quá trình cai nghiện."
+    "expected_answer": "Trong dữ liệu hiện có, Luật Phòng, chống ma túy 2021 thể hiện thời hạn quản lý người sử dụng trái phép chất ma túy là 01 năm. Với câu hỏi về quản lý sau cai nghiện, evidence gần nhất trong dữ liệu là Điều 23 về quản lý người sử dụng trái phép chất ma túy và Điều 32 nhắc trường hợp tái nghiện trong thời gian quản lý sau cai nghiện.",
+    "expected_context": "data/standardized/legal/luat-phong-chong-ma-tuy-2021.md - Điều 23 quy định thời hạn quản lý người sử dụng trái phép chất ma túy là 01 năm kể từ ngày Chủ tịch Ủy ban nhân dân cấp xã ra quyết định quản lý. Điều 32 nhắc trường hợp trong thời gian quản lý sau cai nghiện ma túy mà tái nghiện thì thuộc diện áp dụng biện pháp đưa vào cơ sở cai nghiện bắt buộc."
   },
   {
     "question": "Biện pháp cai nghiện ma túy tự nguyện tại gia đình, cộng đồng có còn được áp dụng theo Luật Phòng, chống ma túy 2021 không?",
-    "expected_answer": "Theo Luật Phòng, chống ma túy 2021, biện pháp cai nghiện ma túy bao gồm cai nghiện tự nguyện và cai nghiện bắt buộc. Pháp luật vẫn khuyến khích và cho phép áp dụng biện pháp cai nghiện ma túy tự nguyện tại gia đình và cộng đồng dưới sự hỗ trợ của y tế cơ sở và chính quyền địa phương."
+    "expected_answer": "Có. Luật Phòng, chống ma túy 2021 quy định biện pháp cai nghiện ma túy gồm cai nghiện tự nguyện và cai nghiện bắt buộc; cai nghiện tự nguyện có thể thực hiện tại gia đình, cộng đồng hoặc tại cơ sở cai nghiện ma túy.",
+    "expected_context": "data/standardized/legal/luat-phong-chong-ma-tuy-2021.md - Điều 28 quy định biện pháp cai nghiện ma túy bao gồm cai nghiện ma túy tự nguyện và cai nghiện ma túy bắt buộc; biện pháp cai nghiện ma túy tự nguyện được thực hiện tại gia đình, cộng đồng hoặc tại cơ sở cai nghiện ma túy. Điều 30 giải thích cai nghiện tự nguyện tại gia đình, cộng đồng được thực hiện với sự hỗ trợ chuyên môn và sự phối hợp, trợ giúp của gia đình, cộng đồng."
   },
   {
     "question": "Hành vi xúi giục hoặc lôi kéo người khác sử dụng trái phép chất ma túy bị xử lý ra sao?",
-    "expected_answer": "Theo Điều 258 Bộ luật Hình sự 2015, người có hành vi xúi giục hoặc lôi kéo người khác sử dụng trái phép chất ma túy có thể bị phạt tù từ 01 năm đến 05 năm. Khung hình phạt có thể tăng nặng (đến 15 năm hoặc 20 năm) nếu phạm tội nhiều lần, phạm tội đối với người dưới 18 tuổi hoặc gây hậu quả chết người."
+    "expected_answer": "Theo Điều 258 Bộ luật Hình sự 2015, người có hành vi lôi kéo người khác sử dụng trái phép chất ma túy có thể bị phạt tù từ 01 năm đến 05 năm; các khung tăng nặng có thể lên đến 15 năm hoặc 20 năm tùy tình tiết.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Điều 258. Tội lôi kéo người khác sử dụng trái phép chất ma túy: người nào rủ rê, dụ dỗ, xúi giục hoặc bằng các thủ đoạn khác nhằm lôi kéo người khác sử dụng trái phép chất ma túy thì bị phạt tù từ 01 năm đến 05 năm; các khoản tiếp theo quy định khung tăng nặng cao hơn."
   },
   {
     "question": "Trách nhiệm của gia đình đối với người nghiện ma túy được quy định thế nào?",
-    "expected_answer": "Theo Luật Phòng, chống ma túy 2021, gia đình có trách nhiệm hỗ trợ, động viên người nghiện ma túy tham gia cai nghiện; quản lý, giám sát và phòng ngừa việc tái nghiện; đồng thời có nghĩa vụ phải phối hợp chặt chẽ với cơ quan chức năng trong việc lập hồ sơ và tổ chức đưa người đi cai nghiện."
+    "expected_answer": "Luật Phòng, chống ma túy 2021 quy định gia đình có trách nhiệm quản lý, giáo dục, ngăn chặn hành vi sử dụng trái phép chất ma túy; cung cấp thông tin cho công an cấp xã; phối hợp đưa người sử dụng trái phép chất ma túy đi xét nghiệm chất ma túy trong cơ thể.",
+    "expected_context": "data/standardized/legal/luat-phong-chong-ma-tuy-2021.md - Điều 25. Trách nhiệm của gia đình, cơ quan, tổ chức, cộng đồng trong quản lý người sử dụng trái phép chất ma túy: gia đình có trách nhiệm quản lý, giáo dục người sử dụng trái phép chất ma túy; ngăn chặn hành vi sử dụng trái phép chất ma túy; cung cấp thông tin cho công an cấp xã; phối hợp với cơ quan có thẩm quyền đưa người sử dụng trái phép chất ma túy đi xét nghiệm."
   },
   {
     "question": "Tội mua bán trái phép chất ma túy có thể phải đối mặt với hình phạt tử hình không?",
-    "expected_answer": "Có. Theo quy định tại Điều 251 Bộ luật Hình sự 2015, người phạm tội mua bán trái phép chất ma túy với khối lượng đặc biệt lớn (ví dụ: Heroine, Cocaine từ 100 gram trở lên, hoặc Methamphetamine từ 300 gram trở lên) có thể bị kết án 20 năm tù, tù chung thân hoặc tử hình."
+    "expected_answer": "Có. Theo Điều 251 Bộ luật Hình sự 2015, tội mua bán trái phép chất ma túy có khung hình phạt cao nhất là tù chung thân hoặc tử hình trong các trường hợp định lượng đặc biệt lớn hoặc tình tiết đặc biệt nghiêm trọng.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Điều 251. Tội mua bán trái phép chất ma túy: khung cao nhất quy định người phạm tội có thể bị phạt tù chung thân hoặc tử hình khi thuộc các trường hợp như nhựa thuốc phiện, nhựa cần sa hoặc cao côca có khối lượng 30 kilôgam trở lên; Heroine, Cocaine, Methamphetamine, Amphetamine, Ketamine, Fentanyl, MDMA hoặc XLR-11 có khối lượng 03 kilôgam trở lên."
   },
   {
     "question": "Ma túy \"nước vui\" hay \"bùa lưỡi\" thuộc nhóm chất nào và có tác hại ra sao?",
-    "expected_answer": "Các loại \"nước vui\" (chứa MDMA, Ketamine...) hay \"bùa lưỡi\" (LSD) là các loại ma túy tổng hợp thế hệ mới. Chúng tác động trực tiếp và kích thích mạnh mẽ hệ thần kinh trung ương, gây ra ảo giác nặng. Lạm dụng chúng có thể gây tổn thương não bộ, suy hô hấp, đột quỵ và đe dọa trực tiếp đến tính mạng."
+    "expected_answer": "Trong dữ liệu đã chuẩn hóa không có đoạn nêu trực tiếp tên gọi \"nước vui\" hoặc \"bùa lưỡi\". Evidence gần nhất là các tài liệu liệt kê MDMA, Ketamine, Methamphetamine, Amphetamine, Fentanyl, XLR-11 là chất ma túy và bài báo nêu ma túy có thể gây ảo giác, hủy hoại hệ thần kinh, gây loạn thần, hoang tưởng.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Nhiều điều luật liệt kê Heroine, Cocaine, Methamphetamine, Amphetamine, Ketamine, Fentanyl, MDMA hoặc XLR-11 trong nhóm chất ma túy. data/standardized/news/vtcnews_ar1020014.md - Bài viết nêu ảo giác tích cực mà ma túy mang lại chỉ là tức thời; về dài hạn, nó hủy hoại hệ thần kinh, làm cùn mòn cảm xúc, gây loạn thần, hoang tưởng và tàn phá đời sống tinh thần."
   },
   {
     "question": "Việc nghệ sĩ nổi tiếng sử dụng ma túy gây ảnh hưởng như thế nào đối với giới trẻ?",
-    "expected_answer": "Nghệ sĩ và những người nổi tiếng thường có lượng lớn người hâm mộ trẻ tuổi theo dõi. Việc họ sử dụng ma túy không chỉ là vi phạm pháp luật mà còn tạo ra sự cổ xúy lối sống tiêu cực, có thể vô tình khiến giới trẻ tò mò và dễ dàng bị lôi kéo học theo các hành vi lệch chuẩn xã hội."
+    "expected_answer": "Bài báo cho rằng khi nghệ sĩ bị phát hiện sử dụng ma túy, tác động tiêu cực lan ra toàn xã hội, có thể bình thường hóa hành vi nguy hiểm trong mắt giới trẻ, làm xói mòn lòng tin của công chúng vào giới nghệ sĩ và gây hoang mang, lệch lạc về hệ giá trị.",
+    "expected_context": "data/standardized/news/vtcnews_ar1020014.md - Bài viết nêu nghệ sĩ không chỉ bán sản phẩm giải trí mà còn bán hình ảnh, lối sống và sức ảnh hưởng; khi người nổi tiếng xem thường pháp luật, hệ lụy không dừng ở một cá nhân mà còn tạo lệch chuẩn trong nhận thức của một bộ phận khán giả. Bài cũng nêu khi nghệ sĩ bị phát hiện sử dụng ma túy, tác động tiêu cực lan ra toàn xã hội và có thể bình thường hóa hành vi nguy hiểm trong mắt giới trẻ."
   },
   {
     "question": "Các cơ sở kinh doanh dịch vụ (như quán bar, karaoke) để xảy ra tình trạng sử dụng ma túy bị xử lý thế nào?",
-    "expected_answer": "Chủ cơ sở kinh doanh dịch vụ nếu thiếu trách nhiệm để xảy ra hoạt động sử dụng ma túy sẽ bị phạt vi phạm hành chính, tước giấy phép kinh doanh. Nếu cố ý bao che, cho thuê địa điểm để sử dụng ma túy, họ sẽ bị truy cứu trách nhiệm hình sự về tội \"Chứa chấp việc sử dụng trái phép chất ma túy\" theo Điều 256 BLHS 2015 với mức án có thể lên đến 15 năm tù."
+    "expected_answer": "Trong dữ liệu hiện có, evidence gần nhất là Điều 256 Bộ luật Hình sự 2015 về tội chứa chấp việc sử dụng trái phép chất ma túy. Người cho thuê, cho mượn địa điểm hoặc có hành vi chứa chấp việc sử dụng trái phép chất ma túy có thể bị phạt tù theo các khung của Điều 256.",
+    "expected_context": "data/standardized/legal/Bộ luật Hình sự 2015 (sửa đổi 2017).md - Điều 256. Tội chứa chấp việc sử dụng trái phép chất ma túy: người nào cho thuê, cho mượn địa điểm hoặc có hành vi khác chứa chấp việc sử dụng trái phép chất ma túy thì bị phạt tù theo quy định; các khung tăng nặng áp dụng khi phạm tội có tổ chức, lợi dụng chức vụ, phạm tội nhiều lần hoặc đối với nhiều người."
   }
 ]
